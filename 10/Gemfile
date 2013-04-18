@@ -1,0 +1,4 @@
+source :rubygems
+
+gem 'activesupport', '~> 3.2.9'
+gem 'builder', '~> 3.1.4'

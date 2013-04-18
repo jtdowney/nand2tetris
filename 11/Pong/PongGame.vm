@@ -1,0 +1,324 @@
+function PongGame.new 0
+push constant 7
+call Memory.alloc 1
+pop pointer 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 50
+pop this 6
+push constant 230
+push constant 229
+push this 6
+push constant 7
+call Bat.new 4
+pop this 0
+push constant 253
+push constant 222
+push constant 0
+push constant 511
+push constant 0
+push constant 229
+call Ball.new 6
+pop this 1
+push this 1
+push constant 400
+push constant 0
+call Ball.setDestination 3
+pop temp 0
+push constant 0
+push constant 238
+push constant 511
+push constant 240
+call Screen.drawRectangle 4
+pop temp 0
+push constant 22
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 8
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 48
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+pop this 3
+push constant 0
+pop this 4
+push constant 0
+pop this 2
+push constant 0
+pop this 5
+push pointer 0
+return
+function PongGame.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Bat.dispose 1
+pop temp 0
+push this 1
+call Ball.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function PongGame.newInstance 0
+call PongGame.new 0
+pop static 0
+push constant 0
+return
+function PongGame.getInstance 0
+push static 0
+return
+function PongGame.run 1
+push argument 0
+pop pointer 0
+label while_457ceccdb41d4334a4c70c32d6601b82_loop
+push this 3
+not
+not
+if-goto while_457ceccdb41d4334a4c70c32d6601b82_end
+label while_48ebf5905fde2d8e52e60578e8fddb13_loop
+push local 0
+push constant 0
+eq
+push this 3
+not
+and
+not
+if-goto while_48ebf5905fde2d8e52e60578e8fddb13_end
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call Bat.move 1
+pop temp 0
+push pointer 0
+call PongGame.moveBall 1
+pop temp 0
+goto while_48ebf5905fde2d8e52e60578e8fddb13_loop
+label while_48ebf5905fde2d8e52e60578e8fddb13_end
+push local 0
+push constant 130
+eq
+if-goto if_c0b0f13a60527e1aa51609c2f0db568e_body
+goto if_c0b0f13a60527e1aa51609c2f0db568e_else
+label if_c0b0f13a60527e1aa51609c2f0db568e_body
+push this 0
+push constant 1
+call Bat.setDirection 2
+pop temp 0
+goto if_c0b0f13a60527e1aa51609c2f0db568e_end
+label if_c0b0f13a60527e1aa51609c2f0db568e_else
+push local 0
+push constant 132
+eq
+if-goto if_56ae9ff8501d639cd21041530a77fa58_body
+goto if_56ae9ff8501d639cd21041530a77fa58_else
+label if_56ae9ff8501d639cd21041530a77fa58_body
+push this 0
+push constant 2
+call Bat.setDirection 2
+pop temp 0
+goto if_56ae9ff8501d639cd21041530a77fa58_end
+label if_56ae9ff8501d639cd21041530a77fa58_else
+push local 0
+push constant 140
+eq
+if-goto if_3eeea252fd55379e69f042214a6d887a_body
+goto if_3eeea252fd55379e69f042214a6d887a_else
+label if_3eeea252fd55379e69f042214a6d887a_body
+push constant 0
+not
+pop this 3
+goto if_3eeea252fd55379e69f042214a6d887a_end
+label if_3eeea252fd55379e69f042214a6d887a_else
+label if_3eeea252fd55379e69f042214a6d887a_end
+label if_56ae9ff8501d639cd21041530a77fa58_end
+label if_c0b0f13a60527e1aa51609c2f0db568e_end
+label while_0b1ec7cbbd9430cf380b6ab9266e9f7a_loop
+push local 0
+push constant 0
+eq
+not
+push this 3
+not
+and
+not
+if-goto while_0b1ec7cbbd9430cf380b6ab9266e9f7a_end
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call Bat.move 1
+pop temp 0
+push pointer 0
+call PongGame.moveBall 1
+pop temp 0
+goto while_0b1ec7cbbd9430cf380b6ab9266e9f7a_loop
+label while_0b1ec7cbbd9430cf380b6ab9266e9f7a_end
+goto while_457ceccdb41d4334a4c70c32d6601b82_loop
+label while_457ceccdb41d4334a4c70c32d6601b82_end
+push this 3
+if-goto if_9dc8295e1424f3c202bb7830359f6b53_body
+goto if_9dc8295e1424f3c202bb7830359f6b53_else
+label if_9dc8295e1424f3c202bb7830359f6b53_body
+push constant 10
+push constant 27
+call Output.moveCursor 2
+pop temp 0
+push constant 9
+call String.new 1
+push constant 71
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+goto if_9dc8295e1424f3c202bb7830359f6b53_end
+label if_9dc8295e1424f3c202bb7830359f6b53_else
+label if_9dc8295e1424f3c202bb7830359f6b53_end
+push constant 0
+return
+function PongGame.moveBall 5
+push argument 0
+pop pointer 0
+push this 1
+call Ball.move 1
+pop this 2
+push this 2
+push constant 0
+gt
+push this 2
+push this 5
+eq
+not
+and
+if-goto if_5e69b0520c07ef34b96c338b7e652115_body
+goto if_5e69b0520c07ef34b96c338b7e652115_else
+label if_5e69b0520c07ef34b96c338b7e652115_body
+push this 2
+pop this 5
+push constant 0
+pop local 0
+push this 0
+call Bat.getLeft 1
+pop local 1
+push this 0
+call Bat.getRight 1
+pop local 2
+push this 1
+call Ball.getLeft 1
+pop local 3
+push this 1
+call Ball.getRight 1
+pop local 4
+push this 2
+push constant 4
+eq
+if-goto if_70cf88e0106c36f834e3c2e21d816af4_body
+goto if_70cf88e0106c36f834e3c2e21d816af4_else
+label if_70cf88e0106c36f834e3c2e21d816af4_body
+push local 1
+push local 4
+gt
+push local 2
+push local 3
+lt
+or
+pop this 3
+push this 3
+not
+if-goto if_d7c721b8e2854cc8fb339e47a9e81752_body
+goto if_d7c721b8e2854cc8fb339e47a9e81752_else
+label if_d7c721b8e2854cc8fb339e47a9e81752_body
+push local 4
+push local 1
+push constant 10
+add
+lt
+if-goto if_983fe5bfe8aeb50b6efad8a7b2a496ad_body
+goto if_983fe5bfe8aeb50b6efad8a7b2a496ad_else
+label if_983fe5bfe8aeb50b6efad8a7b2a496ad_body
+push constant 1
+neg
+pop local 0
+goto if_983fe5bfe8aeb50b6efad8a7b2a496ad_end
+label if_983fe5bfe8aeb50b6efad8a7b2a496ad_else
+push local 3
+push local 2
+push constant 10
+sub
+gt
+if-goto if_446e1e6931473b479f1d1b53bdfbc36a_body
+goto if_446e1e6931473b479f1d1b53bdfbc36a_else
+label if_446e1e6931473b479f1d1b53bdfbc36a_body
+push constant 1
+pop local 0
+goto if_446e1e6931473b479f1d1b53bdfbc36a_end
+label if_446e1e6931473b479f1d1b53bdfbc36a_else
+label if_446e1e6931473b479f1d1b53bdfbc36a_end
+label if_983fe5bfe8aeb50b6efad8a7b2a496ad_end
+push this 6
+push constant 2
+sub
+pop this 6
+push this 0
+push this 6
+call Bat.setWidth 2
+pop temp 0
+push this 4
+push constant 1
+add
+pop this 4
+push constant 22
+push constant 7
+call Output.moveCursor 2
+pop temp 0
+push this 4
+call Output.printInt 1
+pop temp 0
+goto if_d7c721b8e2854cc8fb339e47a9e81752_end
+label if_d7c721b8e2854cc8fb339e47a9e81752_else
+label if_d7c721b8e2854cc8fb339e47a9e81752_end
+goto if_70cf88e0106c36f834e3c2e21d816af4_end
+label if_70cf88e0106c36f834e3c2e21d816af4_else
+label if_70cf88e0106c36f834e3c2e21d816af4_end
+push this 1
+push local 0
+call Ball.bounce 2
+pop temp 0
+goto if_5e69b0520c07ef34b96c338b7e652115_end
+label if_5e69b0520c07ef34b96c338b7e652115_else
+label if_5e69b0520c07ef34b96c338b7e652115_end
+push constant 0
+return

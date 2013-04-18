@@ -1,0 +1,10 @@
+class Blah {
+  function int foo() {
+    var int x, y, z;
+    return x + g(2, y, -z) * 5;
+  }
+
+  function int g(int a, int b, int c) {
+    return 0;
+  }
+}

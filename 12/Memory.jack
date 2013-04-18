@@ -1,0 +1,78 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * Memory operations library.
+ */
+class Memory {
+    static Array freeBlocks;
+    static int heapBase;
+    static int length, next;
+
+    /** Initializes memory parameters. */
+    function void init() {
+      let heapBase = 2048;
+      let length = 0;
+      let next = 1;
+      let freeBlocks = heapBase;
+      let freeBlocks[length] = 14335;
+      let freeBlocks[next] = null;
+      return;
+    }
+
+    /** Returns the value of the main memory at the given address. */
+    function int peek(int address) {
+      var Array memory;
+      let memory = address;
+      return memory[0];
+    }
+
+    /** Sets the value of the main memory at this address
+     *  to the given value. */
+    function void poke(int address, int value) {
+      var Array memory;
+      let memory = address;
+      let memory[0] = value;
+      return;
+    }
+
+    /** finds and allocates from the heap a memory block of the
+     *  specified size and returns a reference to its base address. */
+    function int alloc(int size) {
+      var Array block, prevBlock, nextBlock;
+      let block = freeBlocks;
+      let prevBlock = 0;
+      while (block[length] < size) {
+        let prevBlock = block;
+        let block = block[next];
+        if (block = null) {
+          return -1;
+        }
+      }
+
+      let nextBlock = block + 2 + size;
+      let nextBlock[length] = block[length] - size - 2;
+      let nextBlock[next] = block[next];
+      let block[length] = size;
+      let block[next] = null;
+
+      if (prevBlock = 0) {
+        let freeBlocks = nextBlock;
+      } else {
+        let prevBlock[next] = nextBlock;
+      }
+
+      return block + 2;
+    }
+
+    /** De-allocates the given object and frees its space. */
+    function void deAlloc(int object) {
+      var Array block;
+      let block = object - 2;
+      let block[next] = freeBlocks;
+      let freeBlocks = block;
+      return;
+    }
+}

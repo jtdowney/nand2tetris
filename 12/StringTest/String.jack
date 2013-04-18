@@ -1,0 +1,133 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/String.jack
+
+/**
+ * Represents a String object. Implements the String type.
+ */
+class String {
+    field int length, capacity;
+    field Array internal;
+
+    /** Constructs a new empty String with a maximum length of maxLength. */
+    constructor String new(int maxLength) {
+      if (maxLength > 0) {
+        let internal = Array.new(maxLength);
+      }
+
+      let length = 0;
+      let capacity = maxLength;
+      return this;
+    }
+
+    /** De-allocates the string and frees its space. */
+    method void dispose() {
+      if (~(internal = 0)) {
+        do internal.dispose();
+      }
+      return;
+    }
+
+    /** Returns the current length of this String. */
+    method int length() {
+      return length;
+    }
+
+    /** Returns the character at location j. */
+    method char charAt(int j) {
+      return internal[j];
+    }
+
+    /** Sets the j'th character of this string to be c. */
+    method void setCharAt(int j, char c) {
+      let internal[j] = c;
+      return;
+    }
+
+    /** Appends the character c to the end of this String.
+     *  Returns this string as the return value. */
+    method String appendChar(char c) {
+      let internal[length] = c;
+      let length = length + 1;
+      return this;
+    }
+
+    /** Erases the last character from this String. */
+    method void eraseLastChar() {
+      let length = length - 1;
+      let internal[length] = 0;
+      return;
+    }
+
+    /** Returns the integer value of this String until the first non
+     *  numeric character. */
+    method int intValue() {
+      var int value, i;
+      var boolean negative;
+      if (charAt(0) = 45) {
+        let negative = true;
+        let i = i + 1;
+      }
+
+      while (i < length) {
+        let value = (charAt(i) - 48) + (value * 10);
+        let i = i + 1;
+      }
+
+      if (negative) {
+        let value = -value;
+      }
+
+      return value;
+    }
+
+    /** Sets this String to hold a representation of the given number. */
+    method void setInt(int number) {
+      let length = 0;
+      if (number = 0) {
+        do appendChar(48);
+        return;
+      }
+
+      if (number < 0) {
+        do appendChar(45);
+      }
+
+      let number = Math.abs(number);
+      do setIntInternal(number);
+
+      return;
+    }
+
+    method void setIntInternal(int number) {
+      var int digit, tenth;
+
+      if (number = 0) {
+        return;
+      }
+
+      let tenth = number / 10;
+      let digit = number - (tenth * 10);
+      let number = tenth;
+      do setIntInternal(number);
+      do appendChar(digit + 48);
+
+      return;
+    }
+
+    /** Returns the new line character. */
+    function char newLine() {
+      return 128;
+    }
+
+    /** Returns the backspace character. */
+    function char backSpace() {
+      return 129;
+    }
+
+    /** Returns the double quote (") character. */
+    function char doubleQuote() {
+      return 34;
+    }
+}

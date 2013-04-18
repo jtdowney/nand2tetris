@@ -1,0 +1,8 @@
+class Main {
+  function void main() {
+    var int c;
+    /*let c = Keyboard.readChar();*/
+    let c = Keyboard.readInt("Blah: ");
+    return;
+  }
+}

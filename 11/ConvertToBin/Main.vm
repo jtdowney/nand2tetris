@@ -1,0 +1,119 @@
+function Main.main 2
+push constant 8001
+push constant 16
+push constant 1
+neg
+call Main.fillMemory 3
+pop temp 0
+push constant 8000
+call Memory.peek 1
+pop local 1
+push local 1
+call Main.convert 1
+pop temp 0
+push constant 0
+return
+function Main.convert 3
+push constant 0
+not
+pop local 2
+push local 2
+if-goto while_c2b0bee46f21801f482179377fba969d_loop
+goto while_c2b0bee46f21801f482179377fba969d_end
+label while_c2b0bee46f21801f482179377fba969d_loop
+push local 1
+push constant 1
+add
+pop local 1
+push local 0
+call Main.nextMask 1
+pop local 0
+push constant 9000
+push local 1
+add
+push local 0
+call Memory.poke 2
+pop temp 0
+push local 1
+push constant 16
+gt
+not
+if-goto if_58da499dee056fcd013dee0d3ac0d653_body
+goto if_58da499dee056fcd013dee0d3ac0d653_else
+label if_58da499dee056fcd013dee0d3ac0d653_body
+push argument 0
+push local 0
+and
+push constant 0
+eq
+not
+if-goto if_2f5e2e86d4a5fe09bbfeb904ca5b816e_body
+goto if_2f5e2e86d4a5fe09bbfeb904ca5b816e_else
+label if_2f5e2e86d4a5fe09bbfeb904ca5b816e_body
+push constant 8000
+push local 1
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+goto if_2f5e2e86d4a5fe09bbfeb904ca5b816e_end
+label if_2f5e2e86d4a5fe09bbfeb904ca5b816e_else
+push constant 8000
+push local 1
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+label if_2f5e2e86d4a5fe09bbfeb904ca5b816e_end
+goto if_58da499dee056fcd013dee0d3ac0d653_end
+label if_58da499dee056fcd013dee0d3ac0d653_else
+push constant 0
+pop local 2
+label if_58da499dee056fcd013dee0d3ac0d653_end
+push local 2
+if-goto while_c2b0bee46f21801f482179377fba969d_loop
+label while_c2b0bee46f21801f482179377fba969d_end
+push constant 0
+return
+function Main.nextMask 0
+push argument 0
+push constant 0
+eq
+if-goto if_9db5dafb066a15a883238ca7fa9a2487_body
+goto if_9db5dafb066a15a883238ca7fa9a2487_else
+label if_9db5dafb066a15a883238ca7fa9a2487_body
+push constant 1
+return
+goto if_9db5dafb066a15a883238ca7fa9a2487_end
+label if_9db5dafb066a15a883238ca7fa9a2487_else
+push argument 0
+push constant 2
+call Math.multiply 2
+return
+label if_9db5dafb066a15a883238ca7fa9a2487_end
+function Main.fillMemory 0
+push argument 1
+push constant 0
+gt
+if-goto while_107f71aafccbaa933e3dfb8d286fdf3a_loop
+goto while_107f71aafccbaa933e3dfb8d286fdf3a_end
+label while_107f71aafccbaa933e3dfb8d286fdf3a_loop
+push argument 0
+push argument 2
+call Memory.poke 2
+pop temp 0
+push argument 1
+push constant 1
+sub
+pop argument 1
+push argument 0
+push constant 1
+add
+pop argument 0
+push argument 1
+push constant 0
+gt
+if-goto while_107f71aafccbaa933e3dfb8d286fdf3a_loop
+label while_107f71aafccbaa933e3dfb8d286fdf3a_end
+push constant 0
+return

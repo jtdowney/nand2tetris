@@ -1,0 +1,19 @@
+function Main.main 1
+push constant 6
+call String.new 1
+push constant 66
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Keyboard.readInt 1
+pop local 0
+push constant 0
+return

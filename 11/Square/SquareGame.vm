@@ -1,0 +1,210 @@
+function SquareGame.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+push constant 0
+push constant 30
+call Square.new 3
+pop this 0
+push constant 0
+pop this 1
+push pointer 0
+return
+function SquareGame.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function SquareGame.run 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push local 1
+not
+if-goto while_14134b26275407cf53217f06fdd7e4fa_loop
+goto while_14134b26275407cf53217f06fdd7e4fa_end
+label while_14134b26275407cf53217f06fdd7e4fa_loop
+push local 0
+push constant 0
+eq
+if-goto while_fcc480d7a05533a2ae6174e475428da7_loop
+goto while_fcc480d7a05533a2ae6174e475428da7_end
+label while_fcc480d7a05533a2ae6174e475428da7_loop
+call Keyboard.keyPressed 0
+pop local 0
+push pointer 0
+call SquareGame.moveSquare 1
+pop temp 0
+push local 0
+push constant 0
+eq
+if-goto while_fcc480d7a05533a2ae6174e475428da7_loop
+label while_fcc480d7a05533a2ae6174e475428da7_end
+push local 0
+push constant 81
+eq
+if-goto if_6f135673f73e3cc2cbb1b3c61e421ed2_body
+goto if_6f135673f73e3cc2cbb1b3c61e421ed2_else
+label if_6f135673f73e3cc2cbb1b3c61e421ed2_body
+push constant 0
+not
+pop local 1
+goto if_6f135673f73e3cc2cbb1b3c61e421ed2_end
+label if_6f135673f73e3cc2cbb1b3c61e421ed2_else
+label if_6f135673f73e3cc2cbb1b3c61e421ed2_end
+push local 0
+push constant 90
+eq
+if-goto if_f198b8f66954ada4fffcd753ab8c6aa2_body
+goto if_f198b8f66954ada4fffcd753ab8c6aa2_else
+label if_f198b8f66954ada4fffcd753ab8c6aa2_body
+push this 0
+call Square.decSize 1
+pop temp 0
+goto if_f198b8f66954ada4fffcd753ab8c6aa2_end
+label if_f198b8f66954ada4fffcd753ab8c6aa2_else
+label if_f198b8f66954ada4fffcd753ab8c6aa2_end
+push local 0
+push constant 88
+eq
+if-goto if_253b1185eff927aa0c9f1ca63888f41d_body
+goto if_253b1185eff927aa0c9f1ca63888f41d_else
+label if_253b1185eff927aa0c9f1ca63888f41d_body
+push this 0
+call Square.incSize 1
+pop temp 0
+goto if_253b1185eff927aa0c9f1ca63888f41d_end
+label if_253b1185eff927aa0c9f1ca63888f41d_else
+label if_253b1185eff927aa0c9f1ca63888f41d_end
+push local 0
+push constant 131
+eq
+if-goto if_b5688c664ebe6695d6eb43347badf988_body
+goto if_b5688c664ebe6695d6eb43347badf988_else
+label if_b5688c664ebe6695d6eb43347badf988_body
+push constant 1
+pop this 1
+goto if_b5688c664ebe6695d6eb43347badf988_end
+label if_b5688c664ebe6695d6eb43347badf988_else
+label if_b5688c664ebe6695d6eb43347badf988_end
+push local 0
+push constant 133
+eq
+if-goto if_a970513fb678927f2fbe6108becf61c2_body
+goto if_a970513fb678927f2fbe6108becf61c2_else
+label if_a970513fb678927f2fbe6108becf61c2_body
+push constant 2
+pop this 1
+goto if_a970513fb678927f2fbe6108becf61c2_end
+label if_a970513fb678927f2fbe6108becf61c2_else
+label if_a970513fb678927f2fbe6108becf61c2_end
+push local 0
+push constant 130
+eq
+if-goto if_206246239b5a101c672310198e00a5bb_body
+goto if_206246239b5a101c672310198e00a5bb_else
+label if_206246239b5a101c672310198e00a5bb_body
+push constant 3
+pop this 1
+goto if_206246239b5a101c672310198e00a5bb_end
+label if_206246239b5a101c672310198e00a5bb_else
+label if_206246239b5a101c672310198e00a5bb_end
+push local 0
+push constant 132
+eq
+if-goto if_f6e9880bedb98ca58da8f3e4ef0152a3_body
+goto if_f6e9880bedb98ca58da8f3e4ef0152a3_else
+label if_f6e9880bedb98ca58da8f3e4ef0152a3_body
+push constant 4
+pop this 1
+goto if_f6e9880bedb98ca58da8f3e4ef0152a3_end
+label if_f6e9880bedb98ca58da8f3e4ef0152a3_else
+label if_f6e9880bedb98ca58da8f3e4ef0152a3_end
+push local 0
+push constant 0
+eq
+not
+if-goto while_38604efd03cbe890fe5853cf955515a0_loop
+goto while_38604efd03cbe890fe5853cf955515a0_end
+label while_38604efd03cbe890fe5853cf955515a0_loop
+call Keyboard.keyPressed 0
+pop local 0
+push pointer 0
+call SquareGame.moveSquare 1
+pop temp 0
+push local 0
+push constant 0
+eq
+not
+if-goto while_38604efd03cbe890fe5853cf955515a0_loop
+label while_38604efd03cbe890fe5853cf955515a0_end
+push local 1
+not
+if-goto while_14134b26275407cf53217f06fdd7e4fa_loop
+label while_14134b26275407cf53217f06fdd7e4fa_end
+push constant 0
+return
+function SquareGame.moveSquare 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+eq
+if-goto if_f15e26d54dff26780bb8f6a482d45a00_body
+goto if_f15e26d54dff26780bb8f6a482d45a00_else
+label if_f15e26d54dff26780bb8f6a482d45a00_body
+push this 0
+call Square.moveUp 1
+pop temp 0
+goto if_f15e26d54dff26780bb8f6a482d45a00_end
+label if_f15e26d54dff26780bb8f6a482d45a00_else
+label if_f15e26d54dff26780bb8f6a482d45a00_end
+push this 1
+push constant 2
+eq
+if-goto if_a50412f83686b5c2161647959c068a54_body
+goto if_a50412f83686b5c2161647959c068a54_else
+label if_a50412f83686b5c2161647959c068a54_body
+push this 0
+call Square.moveDown 1
+pop temp 0
+goto if_a50412f83686b5c2161647959c068a54_end
+label if_a50412f83686b5c2161647959c068a54_else
+label if_a50412f83686b5c2161647959c068a54_end
+push this 1
+push constant 3
+eq
+if-goto if_e0a4fa2afa3619d811dd035ae8ba6fc1_body
+goto if_e0a4fa2afa3619d811dd035ae8ba6fc1_else
+label if_e0a4fa2afa3619d811dd035ae8ba6fc1_body
+push this 0
+call Square.moveLeft 1
+pop temp 0
+goto if_e0a4fa2afa3619d811dd035ae8ba6fc1_end
+label if_e0a4fa2afa3619d811dd035ae8ba6fc1_else
+label if_e0a4fa2afa3619d811dd035ae8ba6fc1_end
+push this 1
+push constant 4
+eq
+if-goto if_5afe63df2462f58aab4f0462d0066108_body
+goto if_5afe63df2462f58aab4f0462d0066108_else
+label if_5afe63df2462f58aab4f0462d0066108_body
+push this 0
+call Square.moveRight 1
+pop temp 0
+goto if_5afe63df2462f58aab4f0462d0066108_end
+label if_5afe63df2462f58aab4f0462d0066108_else
+label if_5afe63df2462f58aab4f0462d0066108_end
+push constant 5
+call Sys.wait 1
+pop temp 0
+push constant 0
+return
